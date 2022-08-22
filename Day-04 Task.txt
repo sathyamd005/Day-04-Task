@@ -1,0 +1,87 @@
+
+  // comparing two JSON object having the same properties without order
+  
+  const obj1 ={name:"person1",age:"5"};
+  const obj2= {age:"5",name:"person1"};
+
+console.log(JSON.stringify(obj1)===JSON.stringify(obj2));// false
+
+ const player1={name:"sathya",age:"21"};
+ const player2={name:"arun",age:"21"};
+
+ console.log(JSON.stringify(player1)===JSON.stringify(player2));//false
+
+ // comparing two JSON object having the same properties with same order
+
+ const info1 ={name:"candidate1",age:"16"};
+ const info2= {name:"candidate1",age:"16"};
+
+ console.log(JSON.stringify(info1)===JSON.stringify(info2));// true
+
+
+// printing all the countries flags 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="restcountries.js"></script>
+</body>
+</html>
+
+var Xhr = new XMLHttpRequest();
+Xhr.open("GET","https://restcountries.com/v2/all");
+Xhr.send();
+Xhr.onload=function(){
+var request=JSON.parse(Xhr.response);
+//console.log(request);
+
+// printing all the countries flags 
+
+for (var i=0;i<request.length;i++)
+ {
+    console.log(request[i].flags);
+   
+ 
+
+ }
+}
+
+
+// printing all the countries name, region, sub region and population
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="restcountries.js"></script>
+</body>
+</html>
+
+var Xhr = new XMLHttpRequest();
+Xhr.open("GET","https://restcountries.com/v2/all");
+Xhr.send();
+Xhr.onload=function(){
+var request=JSON.parse(Xhr.response);
+//console.log(request);
+
+// printing all the countries name, region, sub region and population using template literals
+
+for (var i=0;i<request.length;i++)
+ {
+   
+   console.log(`name-${request[i].name} and sub region-${request[i].subregion}  region-${request[i].region} population-${request[i].population}`);
+ 
+
+ }
+}
